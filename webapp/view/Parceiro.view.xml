@@ -2,7 +2,9 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.f.semantic"
-    xmlns:layout="sap.ui.layout">
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    >
     <f:SemanticPage>
 
       <f:titleHeading>
@@ -11,9 +13,93 @@
 
       <f:headerContent>  
         <layout:HorizontalLayout allowWrapping="true">
-            <ObjectAttribute title="Tipo de Parceiro" text="{PartnerType}"/>
+
+            <layout:VerticalLayout allowWrapping="true">
+                <ObjectAttribute title="Tipo de Parceiro" text="{PartnerType}"/>
+                <ObjectAttribute title="ID" text="{PartnerId}" />
+            </layout:VerticalLayout>
+
         </layout:HorizontalLayout>
       </f:headerContent>
+
+      <f:content>
+
+      <layout:VerticalLayout>
+
+      <form:SimpleForm id="SimpleForm"
+          editable="true"
+          layout="ResponsiveGridLayout"
+          title="Identificação"
+          labelSpanXL="3"
+          labelSpanL="3"
+          labelSpanM="3"
+          labelSpanS="12"
+          adjustLabelSpan="false"
+          emptySpanXL="4"
+          emptySpanL="4"
+          emptySpanM="4"
+          emptySpanS="0"
+          columnsXL="1"
+          columnsL="1"
+          columnsM="1"
+          singleContainerFullSize="false" >
+          <form:content>
+            <Label text="Nome 1" />
+            <Input value="{PartnerName1}" />
+
+            <Label text="Nome 2" />
+            <Input value="{PartnerName2}" />
+
+            <Label text="Termos de Pesquisa 1" />
+            <Input value="{SearchTerm1}" />
+
+            <Label text="Termos de Pesquisa 2" />
+            <Input value="{SearchTerm2}" />
+          </form:content>
+        </form:SimpleForm>        
+
+        <form:SimpleForm id="formEndereco"
+        editable="true"
+        layout="ResponsiveGridLayout"
+        title="Endereço"
+        labelSpanXL="3"
+        labelSpanL="3"
+        labelSpanM="3"
+        labelSpanS="12"
+        adjustLabelSpan="false"
+        emptySpanXL="4"
+        emptySpanL="4"
+        emptySpanM="4"
+        emptySpanS="0"
+        columnsXL="1"
+        columnsL="1"
+        columnsM="1"
+        singleContainerFullSize="false" >
+        <form:content>
+          <Label text="Rua" />
+          <Input value="{Street}" />
+
+          <Label text="Numero" />
+          <Input value="{HouseNumber}" />
+
+          <Label text="Bairro" />
+          <Input value="{Distric}" />
+
+          <Label text="Cidade" />
+          <Input value="{City}" />
+
+          <Label text="Estado" />
+          <Input value="{Region}" />
+
+          <Label text="País" />
+          <Input value="{Country}" />
+        </form:content>
+      </form:SimpleForm>        
+      </layout:VerticalLayout >
+
+
+      </f:content>
+
 
 
     </f:SemanticPage>  
