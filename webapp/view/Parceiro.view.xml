@@ -1,10 +1,20 @@
 <mvc:View xmlns:table="sap.ui.table" controllerName="y99.bps.controller.Parceiro"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
-    xmlns:f="sap.f.semantic">
+    xmlns:f="sap.f.semantic"
+    xmlns:layout="sap.ui.layout">
     <f:SemanticPage>
-    <f:titleHeading>
-      <Title text="{PartnerName1}" /> 
-    </f:titleHeading>
+
+      <f:titleHeading>
+        <Title text="{PartnerName1}" /> 
+      </f:titleHeading>
+
+      <f:headerContent>  
+        <layout:HorizontalLayout allowWrapping="true">
+            <ObjectAttribute title="Tipo de Parceiro" text="{PartnerType}"/>
+        </layout:HorizontalLayout>
+      </f:headerContent>
+
+
     </f:SemanticPage>  
 </mvc:View>
