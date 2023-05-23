@@ -1,0 +1,10 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="y99.bps.controller.Parceiro"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f.semantic">
+    <f:SemanticPage>
+    <f:titleHeading>
+      <Title text="{PartnerName1}" /> 
+    </f:titleHeading>
+    </f:SemanticPage>  
+</mvc:View>

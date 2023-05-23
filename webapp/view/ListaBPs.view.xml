@@ -1,0 +1,32 @@
+<mvc:View controllerName="y99.bps.controller.ListaBPs"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Table items="{/Parceiros}" growing="true" growingScrollToLoad="false">
+          <headerToolbar>
+             <OverflowToolbar >
+               <Title text="Parceiros"/>
+             </OverflowToolbar> 
+          </headerToolbar>
+           <columns>
+              <Column >
+                  <Text  text="Identificação" />
+              </Column>
+              <Column >
+                  <Text  text="Tipo" />
+              </Column>
+              <Column >
+                  <Text  text="Cidade" />
+              </Column>
+           </columns>
+           <items>
+              <ColumnListItem type="Navigation" press="aoSelecionarParceiro" >
+              
+                  <ObjectIdentifier title="{PartnerId}" text="{PartnerName1}" />
+                  <Text text="{PartnerType}" />
+                  <Text text="{City}" />
+              </ColumnListItem>
+           </items>
+        </Table>
+      </Page>  
+</mvc:View>
