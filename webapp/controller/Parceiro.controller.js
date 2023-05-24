@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel" //declara uma biblioteca como dependência
+    "sap/ui/model/json/JSONModel", //declara uma biblioteca como dependência
+    "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, MessageToast) {
         "use strict";
 
         return Controller.extend("y99.bps.controller.Parceiro", {
@@ -25,6 +26,9 @@ sap.ui.define([
                 oModelBotao.setProperty("/edicao", false); 
                 oModelBotao.setProperty("/visualizacao", true);
                 this.getView().setModel(oModelBotao, "visibilidade");
+
+                //habilitar alterações pelo usuário
+                this.getOwnerComponent().getModel().sDefaultBindingMode = "TwoWay";
 
             },
             rotaDetalhe: function(oEvent){
@@ -48,6 +52,53 @@ sap.ui.define([
                 
                 this._configuraVisibilidade(true, false);
             },
+
+            aoSalvar: function(oEvent){
+                
+                let oInfo = this.getView().getBindingContext().getObject();
+
+                //resgata o caminho do parceiro clicado para fazer a requisição de update
+                let sCaminho = this.getView().getBindingContext().getPath();
+
+                //acessa o modelo global sem nome
+                let oModel = this.getOwnerComponent().getModel();
+
+                let oNovasInformacoes = {
+                    City: oInfo.City,
+                    Country: oInfo.Country,
+                    Distric: oInfo.Distric,
+                    HouseNumber: oInfo.HouseNumber,
+                    PartnerName1: oInfo.PartnerName1,
+                    PartnerName2: oInfo.PartnerName2,
+                    Region: oInfo.Region,
+                    SearchTerm1: oInfo.SearchTerm1,
+                    SearchTerm2: oInfo.SearchTerm2,
+                    Street: oInfo.Street
+                };
+
+                debugger;
+
+                //habilita chamadas update e create
+                oModel.setHeaders({'X-Requested-With': 'X'});
+
+                oModel.update(sCaminho, oNovasInformacoes, {
+                   success: (oResult) => {
+
+                   },
+                   
+                   error: (oError) => {
+                       MessageToast.show(JSON.parse(oError.responseText).error.innererror.errordetails[0].message);
+                   }
+                   
+                });
+
+
+            },
+
+
+
+
+            //funções internas
 
             _configuraEdicao: function(bValor){
                 //resgatar o modelo
