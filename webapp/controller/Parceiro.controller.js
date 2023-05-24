@@ -1,10 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel" //declara uma biblioteca como dependência
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, JSONModel) {
         "use strict";
 
         return Controller.extend("y99.bps.controller.Parceiro", {
@@ -14,6 +15,13 @@ sap.ui.define([
                 let oRouter = this.getOwnerComponent().getRouter();
                 let oRotaDesejada = oRouter.getRoute("RouteParceiro");
                 oRotaDesejada.attachPatternMatched(this.rotaDetalhe, this);
+
+                //gera um modelo para controlar a edição dos campos de Input
+                let oModel = new JSONModel();
+                oModel.setProperty("/habilitado", false); //declara uma propriedade "habilitado" e marca como falsa
+                this.getView().setModel(oModel, "editavel");
+
+
 
             },
             rotaDetalhe: function(oEvent){

@@ -14,7 +14,7 @@
       <f:headerContent>  
         <layout:HorizontalLayout allowWrapping="true">
 
-            <layout:VerticalLayout allowWrapping="true">
+            <layout:VerticalLayout >
                 <ObjectAttribute title="Tipo de Parceiro" text="{PartnerType}"/>
                 <ObjectAttribute title="ID" text="{PartnerId}" />
             </layout:VerticalLayout>
@@ -45,16 +45,16 @@
           singleContainerFullSize="false" >
           <form:content>
             <Label text="Nome 1" />
-            <Input value="{PartnerName1}" />
+            <Input value="{PartnerName1}" editable="{editavel>/habilitado}" />
 
             <Label text="Nome 2" />
-            <Input value="{PartnerName2}" />
+            <Input value="{PartnerName2}" editable="{editavel>/habilitado}" />
 
             <Label text="Termos de Pesquisa 1" />
-            <Input value="{SearchTerm1}" />
+            <Input value="{SearchTerm1}" editable="{editavel>/habilitado}" />
 
             <Label text="Termos de Pesquisa 2" />
-            <Input value="{SearchTerm2}" />
+            <Input value="{SearchTerm2}"  editable="{editavel>/habilitado}" />
           </form:content>
         </form:SimpleForm>        
 
@@ -77,22 +77,22 @@
         singleContainerFullSize="false" >
         <form:content>
           <Label text="Rua" />
-          <Input value="{Street}" />
+          <Input value="{Street}" editable="{editavel>/habilitado}" />
 
           <Label text="Numero" />
-          <Input value="{HouseNumber}" />
+          <Input value="{HouseNumber}" editable="{editavel>/habilitado}" />
 
           <Label text="Bairro" />
-          <Input value="{Distric}" />
+          <Input value="{Distric}" editable="{editavel>/habilitado}" />
 
           <Label text="Cidade" />
-          <Input value="{City}" />
+          <Input value="{City}" editable="{editavel>/habilitado}" />
 
           <Label text="Estado" />
-          <Input value="{Region}" />
+          <Input value="{Region}" editable="{editavel>/habilitado}" />
 
           <Label text="País" />
-          <Input value="{Country}" />
+          <Input value="{Country}" editable="{editavel>/habilitado}" />
         </form:content>
       </form:SimpleForm>        
       </layout:VerticalLayout >
