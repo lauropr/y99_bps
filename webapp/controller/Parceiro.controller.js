@@ -21,7 +21,10 @@ sap.ui.define([
                 oModel.setProperty("/habilitado", false); //declara uma propriedade "habilitado" e marca como falsa
                 this.getView().setModel(oModel, "editavel");
 
-
+                let oModelBotao = new JSONModel();
+                oModelBotao.setProperty("/edicao", false); 
+                oModelBotao.setProperty("/visualizacao", true);
+                this.getView().setModel(oModelBotao, "visibilidade");
 
             },
             rotaDetalhe: function(oEvent){
@@ -38,7 +41,32 @@ sap.ui.define([
               //faz o GET no modelo com o caminho e associa na view para termos acesso às propriedades
               this.getView().bindElement(sCaminho);
 
+            },
+
+            aoEditar: function(oEvent){
+                this._configuraEdicao(true); 
+                
+                this._configuraVisibilidade(true, false);
+            },
+
+            _configuraEdicao: function(bValor){
+                //resgatar o modelo
+                let oModel = this.getView().getModel("editavel");
+
+                //passar o valor desejado para a propriedade "habilitado"
+                oModel.setProperty("/habilitado", bValor);
+            },
+            
+            _configuraVisibilidade: function(bEdicao, bVisualizacao){
+                //resgatar o modelo
+                let oModel = this.getView().getModel("visibilidade");
+
+                //passar o valor desejado para a propriedade "habilitado"
+                oModel.setProperty("/edicao", bEdicao);
+                oModel.setProperty("/visualizacao", bVisualizacao);
             }
+
+
 
         });
     });

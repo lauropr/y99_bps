@@ -102,13 +102,13 @@
 
 
       <f:footerMainAction>
-        <f:FooterMainAction text="Editar" />
+        <f:FooterMainAction text="Editar" visible="{visibilidade>/visualizacao}" press="aoEditar"/>
       </f:footerMainAction>
 
-      <!-- <f:footerCustomActions>
-        <Button text="Editar" type="Emphasized" />
-
-      </f:footerCustomActions> -->
+      <f:footerCustomActions>
+        <Button text="Salvar" type="Accept" visible="{visibilidade>/edicao}" />
+        <Button text="Cancelar" type="Reject" visible="{visibilidade>/edicao}" />
+      </f:footerCustomActions>
 
     </f:SemanticPage>  
 </mvc:View>
