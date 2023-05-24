@@ -93,7 +93,11 @@
 
           <Label text="País" />
           <Input value="{Country}" editable="{editavel>/habilitado}" />
-        </form:content>
+
+          <Label text="CEP" />
+          <Input value="{ZipCode}" editable="{editavel>/habilitado}" />
+  
+          </form:content>
       </form:SimpleForm>        
       </layout:VerticalLayout >
 
@@ -107,7 +111,7 @@
 
       <f:footerCustomActions>
         <Button text="Salvar" type="Accept" visible="{visibilidade>/edicao}" press="aoSalvar" />
-        <Button text="Cancelar" type="Reject" visible="{visibilidade>/edicao}" />
+        <Button text="Cancelar" type="Reject" visible="{visibilidade>/edicao}" press="aoCancelar" />
       </f:footerCustomActions>
 
     </f:SemanticPage>  

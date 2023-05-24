@@ -81,7 +81,9 @@ sap.ui.define([
 
                 oModel.update(sCaminho, oNovasInformacoes, {
                    success: (oResult) => {
-
+                        MessageToast.show("Dados atualizados com sucesso");
+                        this._configuraVisibilidade(false, true);
+                        this._configuraEdicao(false);
                    },
                    
                    error: (oError) => {
@@ -90,7 +92,22 @@ sap.ui.define([
                    
                 });
 
+                debugger;
 
+            },
+
+            aoCancelar: function(oEvent){
+                //resgata o caminho do parceiro clicado para fazer a requisição de update
+                let sCaminho = this.getView().getBindingContext().getPath();
+
+                //acessa o modelo
+                let oModel = this.getOwnerComponent().getModel();
+
+                //chama o método resetChanges
+                oModel.resetChanges(new Array(sCaminho));        
+
+                this._configuraVisibilidade(false, true);
+                this._configuraEdicao(false);
             },
 
 
