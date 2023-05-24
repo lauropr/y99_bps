@@ -5,7 +5,7 @@
     xmlns:layout="sap.ui.layout"
     xmlns:form="sap.ui.layout.form"
     >
-    <f:SemanticPage>
+    <f:SemanticPage showFooter="true">
 
       <f:titleHeading>
         <Title text="{PartnerName1}" /> 
@@ -101,6 +101,14 @@
       </f:content>
 
 
+      <f:footerMainAction>
+        <f:FooterMainAction text="Editar" />
+      </f:footerMainAction>
+
+      <!-- <f:footerCustomActions>
+        <Button text="Editar" type="Emphasized" />
+
+      </f:footerCustomActions> -->
 
     </f:SemanticPage>  
 </mvc:View>
